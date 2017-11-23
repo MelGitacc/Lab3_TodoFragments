@@ -17,7 +17,6 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 
-import com.example.todofragments.Todo;
 
 public class TodoFragment extends Fragment {
 
@@ -27,6 +26,7 @@ public class TodoFragment extends Fragment {
     private CheckBox mCheckBoxIsComplete;
 
     @Override
+    //store simple data items key value pairs before fragment is destroyed
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         mTodo = new Todo();
@@ -37,10 +37,11 @@ public class TodoFragment extends Fragment {
 
     @Nullable
     @Override
+    //use this for linking your fragment xml layout
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
+    //this line of code links both of the java part and the XML that deals with the appearance
         View view = inflater.inflate(R.layout.fragment_todo, container, false);
 
         mEditTextTitle = (EditText) view.findViewById(R.id.todo_title);
